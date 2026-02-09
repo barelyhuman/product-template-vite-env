@@ -2,7 +2,7 @@ import { Hono } from "hono";
 import { drizzle } from "drizzle-orm/d1";
 import * as schema from "../db/schema";
 import { getUserPlan, PLAN_LIMITS } from "../lib/plans";
-import { Bindings, Variables } from "../types";
+import type { Bindings, Variables } from "../types";
 
 export const subscription = new Hono<{ Bindings: Bindings; Variables: Variables }>();
 

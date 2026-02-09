@@ -14,7 +14,8 @@ const variantClasses: Record<ButtonVariant, string> = {
     "bg-raised text-content-secondary hover:bg-raised-hover hover:text-content rounded-lg transition-colors disabled:opacity-50",
   ghost: "text-content-secondary hover:text-content transition-colors disabled:opacity-50",
   icon: "p-1.5 rounded-md text-content-tertiary hover:text-content hover:bg-raised-hover transition-all cursor-pointer",
-  "danger-icon": "p-1.5 text-content-tertiary hover:text-delete-hover transition-colors cursor-pointer",
+  "danger-icon":
+    "p-1.5 text-content-tertiary hover:text-delete-hover transition-colors cursor-pointer",
 };
 
 const sizeClasses: Record<string, string> = {

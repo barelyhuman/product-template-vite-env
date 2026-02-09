@@ -1,6 +1,5 @@
 import { API_BASE_URL } from "./constants";
 
-
 export interface SubscriptionResponse {
   plan: "free" | "pro";
   limits: Record<string, unknown>;

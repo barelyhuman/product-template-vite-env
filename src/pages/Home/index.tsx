@@ -1,5 +1,14 @@
 import { useSignal } from "@preact/signals";
 import { useLocation } from "preact-iso";
+import {
+  IconShieldLock,
+  IconCreditCard,
+  IconLayoutDashboard,
+  IconDatabase,
+  IconBolt,
+  IconWorld,
+} from "@tabler/icons-react";
+import type { ComponentType } from "preact";
 
 export function Home() {
   const { route } = useLocation();
@@ -40,36 +49,40 @@ export function Home() {
 }
 
 function Features() {
-  const features = [
+  const features: {
+    title: string;
+    desc: string;
+    icon: ComponentType<{ size?: number; stroke?: number }>;
+  }[] = [
     {
       title: "Authentication",
       desc: "Email/password and OAuth out of the box. Session management included.",
-      icon: "🔒",
+      icon: IconShieldLock,
     },
     {
       title: "Billing & subscriptions",
       desc: "Polar integration with free and pro plans. Webhooks handle the rest.",
-      icon: "💳",
+      icon: IconCreditCard,
     },
     {
       title: "Dashboard",
       desc: "A protected area for your users, ready for you to build on.",
-      icon: "📊",
+      icon: IconLayoutDashboard,
     },
     {
       title: "Database",
       desc: "Drizzle ORM with SQLite (Cloudflare D1). Type-safe migrations.",
-      icon: "🗄️",
+      icon: IconDatabase,
     },
     {
       title: "API",
       desc: "Hono on Cloudflare Workers. Fast, typed, and globally distributed.",
-      icon: "⚡",
+      icon: IconBolt,
     },
     {
       title: "Modern frontend",
       desc: "Preact, Vite, and Tailwind CSS. Lightweight and fast.",
-      icon: "🌐",
+      icon: IconWorld,
     },
   ];
 
@@ -86,7 +99,9 @@ function Features() {
               key={f.title}
               class="bg-surface border border-edge rounded-xl p-6 hover:border-edge-hover transition-colors"
             >
-              <div class="text-2xl mb-3">{f.icon}</div>
+              <div class="text-accent-text mb-3">
+                <f.icon size={28} stroke={1.5} />
+              </div>
               <h3 class="text-lg font-semibold mb-2">{f.title}</h3>
               <p class="text-sm text-content-tertiary">{f.desc}</p>
             </div>

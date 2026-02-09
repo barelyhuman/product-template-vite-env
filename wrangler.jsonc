@@ -5,9 +5,7 @@
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
     "not_found_handling": "single-page-application",
-    "run_worker_first": [
-      "/api/*"
-    ]
+    "run_worker_first": ["/api/*"],
   },
   "vars": {
     "BETTER_AUTH_URL": "https://api.example.com",
@@ -21,5 +19,5 @@
       "migrations_dir": "drizzle/migrations",
     },
   ],
-  "main": "./api/index.ts"
+  "main": "./api/index.ts",
 }

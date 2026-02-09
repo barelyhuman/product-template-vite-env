@@ -15,9 +15,7 @@ export const ThemeModel = createModel(() => {
   const resolved = computed<"light" | "dark">(() => {
     if (preference.value !== "system") return preference.value;
     if (typeof window === "undefined") return "dark";
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
   });
 
   const isDark = computed(() => resolved.value === "dark");

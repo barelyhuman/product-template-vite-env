@@ -23,7 +23,7 @@ app.use("/api/*", async (c, next) => {
 app.use(
   "/api/*",
   cors({
-    origin: (origin, c) =>
+    origin: (_origin, c) =>
       isProduction(c.env) ? "https://app.example.com" : "http://localhost:5173",
     credentials: true,
     allowHeaders: ["Content-Type", "Authorization"],
