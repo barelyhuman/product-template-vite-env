@@ -5,13 +5,13 @@ interface AlertProps {
 }
 
 const variantClasses: Record<string, string> = {
-  error: "p-3 bg-red-900/20 border border-red-800 rounded-lg text-red-400 text-sm",
-  success: "p-3 bg-green-900/20 border border-green-800 rounded-lg text-green-400 text-sm",
+  error: "p-3 bg-error-surface border border-error-edge rounded-lg text-error-text text-sm",
+  success: "p-3 bg-success-surface border border-success-edge rounded-lg text-success-text text-sm",
 };
 
 export function Alert({ children, variant = "error", class: className }: AlertProps) {
   if (variant === "inline-error") {
-    return <p class={`text-sm text-red-400 ${className ?? ""}`.trim()}>{children}</p>;
+    return <p class={`text-sm text-error-text ${className ?? ""}`.trim()}>{children}</p>;
   }
 
   return <div class={`${variantClasses[variant]} ${className ?? ""}`.trim()}>{children}</div>;

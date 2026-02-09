@@ -6,25 +6,25 @@ export function Home() {
 
   return (
     <>
-      <div class="min-h-screen bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-950 flex items-center justify-center relative overflow-hidden">
+      <div class="min-h-screen bg-gradient-to-br from-page via-surface to-page flex items-center justify-center relative overflow-hidden">
         {/* Subtle background pattern */}
         <div class="absolute inset-0 opacity-5">
           <div
             class="absolute inset-0"
-            style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 24px 24px;"
+            style="background-image: radial-gradient(circle at 1px 1px, var(--t-content) 1px, transparent 0); background-size: 24px 24px;"
           ></div>
         </div>
 
         {/* Main content */}
         <div class="relative z-10 text-center px-6">
-          <h1 class="text-8xl md:text-9xl font-bold mb-6 text-white">ACME</h1>
-          <p class="text-lg md:text-xl text-neutral-400 mb-12 max-w-[45ch] mx-auto leading-relaxed">
+          <h1 class="text-8xl md:text-9xl font-bold mb-6 text-content">ACME</h1>
+          <p class="text-lg md:text-xl text-content-tertiary mb-12 max-w-[45ch] mx-auto leading-relaxed">
             Ship your next idea faster. Auth, billing, and a dashboard — all wired up and ready to
             go.
           </p>
           <button
             onClick={() => route("/dashboard")}
-            class="px-8 py-3 rounded-xl bg-white text-neutral-950 font-bold text-lg hover:bg-neutral-100 transition-all hover:scale-105 shadow-lg hover:shadow-xl"
+            class="px-8 py-3 rounded-xl bg-cta text-cta-text font-bold text-lg hover:bg-cta-hover transition-all hover:scale-105 shadow-lg hover:shadow-xl"
           >
             Get Started
           </button>
@@ -77,18 +77,18 @@ function Features() {
     <section id="features" class="py-24 px-6">
       <div class="max-w-7xl mx-auto">
         <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Everything you need</h2>
-        <p class="text-neutral-400 text-center mb-16 max-w-xl mx-auto">
+        <p class="text-content-tertiary text-center mb-16 max-w-xl mx-auto">
           A complete foundation so you can focus on what makes your product unique.
         </p>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((f) => (
             <div
               key={f.title}
-              class="bg-neutral-900 border border-neutral-800 rounded-xl p-6 hover:border-neutral-700 transition-colors"
+              class="bg-surface border border-edge rounded-xl p-6 hover:border-edge-hover transition-colors"
             >
               <div class="text-2xl mb-3">{f.icon}</div>
               <h3 class="text-lg font-semibold mb-2">{f.title}</h3>
-              <p class="text-sm text-neutral-400">{f.desc}</p>
+              <p class="text-sm text-content-tertiary">{f.desc}</p>
             </div>
           ))}
         </div>
@@ -117,17 +117,17 @@ function HowItWorks() {
   ];
 
   return (
-    <section id="how-it-works" class="py-24 px-6 bg-neutral-900/50">
+    <section id="how-it-works" class="py-24 px-6 bg-surface-alt">
       <div class="max-w-5xl mx-auto">
         <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">How it works</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
           {steps.map((s) => (
             <div key={s.num} class="text-center">
-              <div class="w-12 h-12 rounded-full bg-violet-600/20 text-violet-400 font-bold text-xl flex items-center justify-center mx-auto mb-4">
+              <div class="w-12 h-12 rounded-full bg-accent-surface text-accent-text font-bold text-xl flex items-center justify-center mx-auto mb-4">
                 {s.num}
               </div>
               <h3 class="text-lg font-semibold mb-2">{s.title}</h3>
-              <p class="text-sm text-neutral-400">{s.desc}</p>
+              <p class="text-sm text-content-tertiary">{s.desc}</p>
             </div>
           ))}
         </div>
@@ -141,35 +141,35 @@ function Pricing() {
     <section id="pricing" class="py-24 px-6">
       <div class="max-w-5xl mx-auto">
         <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Simple pricing</h2>
-        <p class="text-neutral-400 text-center mb-16 max-w-xl mx-auto">
+        <p class="text-content-tertiary text-center mb-16 max-w-xl mx-auto">
           Start free, upgrade when you need more.
         </p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
           {/* Free */}
-          <div class="flex flex-col bg-neutral-900 border border-neutral-800 rounded-xl p-8">
+          <div class="flex flex-col bg-surface border border-edge rounded-xl p-8">
             <h3 class="text-lg font-semibold mb-1">Free</h3>
             <p class="text-3xl font-bold mb-4">
-              $0<span class="text-sm font-normal text-neutral-400">/mo</span>
+              $0<span class="text-sm font-normal text-content-tertiary">/mo</span>
             </p>
-            <ul class="space-y-2 text-sm text-neutral-400 mb-8">
+            <ul class="space-y-2 text-sm text-content-tertiary mb-8">
               <li>Basic features</li>
               <li>Community support</li>
               <li>Up to 100 items</li>
             </ul>
-            <button class="mt-auto w-full py-2.5 rounded-lg bg-neutral-800 border border-neutral-700 text-white font-medium hover:bg-neutral-700 transition-colors">
+            <button class="mt-auto w-full py-2.5 rounded-lg bg-raised border border-edge-hover text-content font-medium hover:bg-raised-hover transition-colors">
               Get started
             </button>
           </div>
           {/* Pro */}
-          <div class="bg-neutral-900 border border-violet-600/50 rounded-xl p-8 relative">
-            <span class="absolute -top-3 left-6 bg-violet-600 text-xs font-semibold px-3 py-1 rounded-full">
+          <div class="bg-surface border border-accent/50 rounded-xl p-8 relative">
+            <span class="absolute -top-3 left-6 bg-accent text-white text-xs font-semibold px-3 py-1 rounded-full">
               Popular
             </span>
             <h3 class="text-lg font-semibold mb-1">Pro</h3>
             <p class="text-3xl font-bold mb-4">
-              $10<span class="text-sm font-normal text-neutral-400">/mo</span>
+              $10<span class="text-sm font-normal text-content-tertiary">/mo</span>
             </p>
-            <ul class="space-y-2 text-sm text-neutral-400 mb-8">
+            <ul class="space-y-2 text-sm text-content-tertiary mb-8">
               <li>All free features</li>
               <li>Priority support</li>
               <li>Unlimited items</li>
@@ -192,13 +192,13 @@ function Trust() {
   ];
 
   return (
-    <section class="py-24 px-6 bg-neutral-900/50">
+    <section class="py-24 px-6 bg-surface-alt">
       <div class="max-w-5xl mx-auto">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {stats.map((s) => (
             <div key={s.label}>
-              <p class="text-3xl md:text-4xl font-bold text-violet-400">{s.value}</p>
-              <p class="text-sm text-neutral-400 mt-1">{s.label}</p>
+              <p class="text-3xl md:text-4xl font-bold text-accent-text">{s.value}</p>
+              <p class="text-sm text-content-tertiary mt-1">{s.label}</p>
             </div>
           ))}
         </div>
@@ -253,14 +253,14 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
   const open = useSignal(false);
 
   return (
-    <div class="border border-neutral-800 rounded-xl overflow-hidden">
+    <div class="border border-edge rounded-xl overflow-hidden">
       <button
-        class="w-full text-left px-6 py-4 flex items-center justify-between hover:bg-neutral-900/50 transition-colors"
+        class="w-full text-left px-6 py-4 flex items-center justify-between hover:bg-surface-alt transition-colors"
         onClick={() => (open.value = !open.value)}
       >
         <span class="font-medium">{question}</span>
         <svg
-          class={`w-5 h-5 text-neutral-400 transition-transform ${open.value ? "rotate-180" : ""}`}
+          class={`w-5 h-5 text-content-tertiary transition-transform ${open.value ? "rotate-180" : ""}`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -269,7 +269,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
           <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
         </svg>
       </button>
-      {open.value && <div class="px-6 pt-4 pb-4 text-sm text-neutral-400">{answer}</div>}
+      {open.value && <div class="px-6 pt-4 pb-4 text-sm text-content-tertiary">{answer}</div>}
     </div>
   );
 }

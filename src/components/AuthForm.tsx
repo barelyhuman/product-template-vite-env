@@ -28,13 +28,13 @@ export function AuthForm({ onSuccess, compact = false }: AuthFormProps) {
     <div class={compact ? "w-full" : "min-h-screen flex items-center justify-center px-4 pt-16"}>
       <div class="w-full max-w-md mx-auto">
         {/* Tab toggle */}
-        <div class="flex rounded-lg bg-neutral-900 border border-neutral-800 p-1 mb-6">
+        <div class="flex rounded-lg bg-surface border border-edge p-1 mb-6">
           <button
             type="button"
             class={`flex-1 text-sm font-medium py-2 rounded-md transition-colors ${
               form.tab.value === "signin"
-                ? "bg-neutral-800 text-white"
-                : "text-neutral-400 hover:text-white"
+                ? "bg-raised text-content"
+                : "text-content-tertiary hover:text-content"
             }`}
             onClick={() => form.switchTab("signin")}
           >
@@ -44,8 +44,8 @@ export function AuthForm({ onSuccess, compact = false }: AuthFormProps) {
             type="button"
             class={`flex-1 text-sm font-medium py-2 rounded-md transition-colors ${
               form.tab.value === "signup"
-                ? "bg-neutral-800 text-white"
-                : "text-neutral-400 hover:text-white"
+                ? "bg-raised text-content"
+                : "text-content-tertiary hover:text-content"
             }`}
             onClick={() => form.switchTab("signup")}
           >
@@ -54,8 +54,8 @@ export function AuthForm({ onSuccess, compact = false }: AuthFormProps) {
         </div>
 
         {/* Form card */}
-        <div class="bg-neutral-900 border border-neutral-800 rounded-xl p-6">
-          <h1 class="text-xl font-semibold text-white mb-6">
+        <div class="bg-surface border border-edge rounded-xl p-6">
+          <h1 class="text-xl font-semibold text-content mb-6">
             {form.tab.value === "signin" ? "Welcome back" : "Create your account"}
           </h1>
 

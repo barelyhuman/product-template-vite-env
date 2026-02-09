@@ -9,12 +9,12 @@ type ButtonProps = JSX.IntrinsicElements["button"] & {
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    "bg-violet-600 hover:bg-violet-700 text-white rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed",
+    "bg-accent hover:bg-accent-hover text-white rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed",
   secondary:
-    "bg-neutral-800 text-neutral-300 hover:bg-neutral-700 hover:text-white rounded-lg transition-colors disabled:opacity-50",
-  ghost: "text-neutral-300 hover:text-white transition-colors disabled:opacity-50",
-  icon: "p-1.5 rounded-md text-neutral-400 hover:text-white hover:bg-neutral-700 transition-all cursor-pointer",
-  "danger-icon": "p-1.5 text-neutral-400 hover:text-red-400 transition-colors cursor-pointer",
+    "bg-raised text-content-secondary hover:bg-raised-hover hover:text-content rounded-lg transition-colors disabled:opacity-50",
+  ghost: "text-content-secondary hover:text-content transition-colors disabled:opacity-50",
+  icon: "p-1.5 rounded-md text-content-tertiary hover:text-content hover:bg-raised-hover transition-all cursor-pointer",
+  "danger-icon": "p-1.5 text-content-tertiary hover:text-delete-hover transition-colors cursor-pointer",
 };
 
 const sizeClasses: Record<string, string> = {

@@ -25,17 +25,17 @@ export function Billing() {
 
   if (billing.loading.value) {
     return (
-      <div class="min-h-screen bg-neutral-950 flex items-center justify-center">
-        <p class="text-neutral-400 text-sm">Loading...</p>
+      <div class="min-h-screen bg-page flex items-center justify-center">
+        <p class="text-content-tertiary text-sm">Loading...</p>
       </div>
     );
   }
 
   return (
-    <div class="min-h-screen mt-12 bg-neutral-950">
+    <div class="min-h-screen mt-12 bg-page">
       <div class="max-w-2xl mx-auto px-4 py-12">
         <div class="flex items-center justify-between mb-8">
-          <h1 class="text-2xl font-bold text-white">Billing</h1>
+          <h1 class="text-2xl font-bold text-content">Billing</h1>
           <Button variant="ghost" size="sm" onClick={() => route("/dashboard")}>
             Back to Dashboard
           </Button>
@@ -50,14 +50,14 @@ export function Billing() {
         {billing.error.value && <Alert class="mb-6">{billing.error.value}</Alert>}
 
         {/* Current Plan */}
-        <div class="bg-neutral-900 border border-neutral-800 rounded-xl p-6">
+        <div class="bg-surface border border-edge rounded-xl p-6">
           <div class="flex items-center justify-between">
             <div>
-              <h2 class="text-lg font-semibold text-white">Current Plan</h2>
-              <p class="text-sm text-neutral-400 mt-1">
+              <h2 class="text-lg font-semibold text-content">Current Plan</h2>
+              <p class="text-sm text-content-tertiary mt-1">
                 You are on the{" "}
                 <span
-                  class={`font-medium ${billing.isPro.value ? "text-violet-400" : "text-neutral-300"}`}
+                  class={`font-medium ${billing.isPro.value ? "text-accent-text" : "text-content-secondary"}`}
                 >
                   {billing.isPro.value ? "Pro" : "Free"}
                 </span>{" "}

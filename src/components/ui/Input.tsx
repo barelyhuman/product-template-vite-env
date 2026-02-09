@@ -5,7 +5,7 @@ type InputProps = JSX.IntrinsicElements["input"] & { class?: string };
 export function Input({ class: className, ...props }: InputProps) {
   return (
     <input
-      class={`rounded-lg bg-neutral-800 border border-neutral-700 px-3 py-2 text-sm text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-violet-600 ${className ?? ""}`.trim()}
+      class={`rounded-lg bg-raised border border-edge-hover px-3 py-2 text-sm text-content placeholder-content-faint focus:outline-none focus:ring-2 focus:ring-accent ${className ?? ""}`.trim()}
       {...props}
     />
   );
@@ -22,5 +22,5 @@ export function Label({ class: className, children, ...props }: LabelProps) {
 }
 
 export function LabelText({ children }: { children: preact.ComponentChildren }) {
-  return <span class="text-sm text-neutral-400">{children}</span>;
+  return <span class="text-sm text-content-tertiary">{children}</span>;
 }

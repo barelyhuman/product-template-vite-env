@@ -21,8 +21,8 @@ export function Dashboard() {
 
   if (auth.loading.value) {
     return (
-      <div class="min-h-screen bg-neutral-950 pt-16 flex items-center justify-center">
-        <p class="text-neutral-400 text-sm">Loading...</p>
+      <div class="min-h-screen bg-page pt-16 flex items-center justify-center">
+        <p class="text-content-tertiary text-sm">Loading...</p>
       </div>
     );
   }
@@ -33,20 +33,20 @@ export function Dashboard() {
   }
 
   return (
-    <div class="min-h-screen bg-neutral-950 pt-16">
+    <div class="min-h-screen bg-page pt-16">
       <div class="max-w-4xl mx-auto px-6 py-12">
         <div class="flex items-center justify-between mb-6">
-          <h1 class="text-2xl font-bold text-white">Dashboard</h1>
+          <h1 class="text-2xl font-bold text-content">Dashboard</h1>
           <Button variant="ghost" size="sm" onClick={() => route("/billing")}>
             Billing
           </Button>
         </div>
 
         {/* Notes — example interaction */}
-        <div class="bg-neutral-900 border border-neutral-800 rounded-xl p-6">
+        <div class="bg-surface border border-edge rounded-xl p-6">
           <div class="flex items-center justify-between mb-4">
-            <h2 class="text-lg font-semibold text-white">Notes</h2>
-            <span class="text-xs text-neutral-500">{notes.count.value} items</span>
+            <h2 class="text-lg font-semibold text-content">Notes</h2>
+            <span class="text-xs text-content-faint">{notes.count.value} items</span>
           </div>
 
           <form onSubmit={handleSubmit} class="flex gap-2 mb-4">
@@ -63,18 +63,18 @@ export function Dashboard() {
           </form>
 
           {notes.items.value.length === 0 ? (
-            <p class="text-sm text-neutral-500 text-center py-8">No notes yet. Add one above.</p>
+            <p class="text-sm text-content-faint text-center py-8">No notes yet. Add one above.</p>
           ) : (
             <ul class="space-y-2">
               {notes.items.value.map((note) => (
                 <li
                   key={note.id}
-                  class="flex items-center justify-between bg-neutral-800/50 rounded-lg px-4 py-3 group"
+                  class="flex items-center justify-between bg-note-bg rounded-lg px-4 py-3 group"
                 >
-                  <span class="text-sm text-neutral-300">{note.text}</span>
+                  <span class="text-sm text-content-secondary">{note.text}</span>
                   <button
                     onClick={() => notes.remove(note.id)}
-                    class="text-neutral-600 hover:text-red-400 transition-colors opacity-0 group-hover:opacity-100"
+                    class="text-delete hover:text-delete-hover transition-colors opacity-0 group-hover:opacity-100"
                     aria-label="Delete note"
                   >
                     <svg

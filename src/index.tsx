@@ -7,10 +7,13 @@ import {
   useLocation,
   lazy,
 } from "preact-iso";
+import { useModel } from "@preact/signals";
+import { useEffect } from "preact/hooks";
 
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { DashboardHeader } from "./components/DashboardHeader";
+import { ThemeModel } from "./models/theme";
 import "./style.css";
 
 const Home = lazy(() => import("./pages/Home/index").then((module) => module.Home));
@@ -22,9 +25,14 @@ const NotFound = lazy(() => import("./pages/_404").then((module) => module.NotFo
 function AppContent() {
   const { url } = useLocation();
   const shouldRenderBaseHeader = url === "/" || url === "/auth";
+  const theme = useModel(ThemeModel);
+
+  useEffect(() => {
+    return theme.init();
+  }, []);
 
   return (
-    <div class="bg-neutral-950 min-h-screen">
+    <div class="bg-page min-h-screen text-content">
       {/* Show appropriate header based on route */}
       {shouldRenderBaseHeader ? <Header /> : <DashboardHeader />}
 

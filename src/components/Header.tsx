@@ -2,6 +2,7 @@ import { useSignal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
 import { useModel } from "@preact/signals";
 import { AuthModel } from "../models/auth";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function Header() {
   const scrolled = useSignal(false);
@@ -30,12 +31,12 @@ export function Header() {
     <header
       class={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled.value
-          ? "bg-neutral-950/80 backdrop-blur-lg border-b border-neutral-800"
+          ? "bg-overlay backdrop-blur-lg border-b border-edge"
           : "bg-transparent"
       }`}
     >
       <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="/" class="text-xl font-bold text-white tracking-tight">
+        <a href="/" class="text-xl font-bold text-content tracking-tight">
           Acme
         </a>
 
@@ -45,14 +46,15 @@ export function Header() {
             <a
               key={l.href}
               href={l.href}
-              class="text-sm text-neutral-400 hover:text-white transition-colors"
+              class="text-sm text-content-tertiary hover:text-content transition-colors"
             >
               {l.label}
             </a>
           ))}
+          <ThemeToggle />
           <a
             href={auth.authenticated.value ? "/dashboard" : "/auth"}
-            class="text-sm font-medium px-4 py-2 rounded-lg bg-violet-600 text-white hover:bg-violet-500 transition-colors"
+            class="text-sm font-medium px-4 py-2 rounded-lg bg-accent text-white hover:bg-accent-hover transition-colors"
           >
             {auth.authenticated.value ? "Dashboard" : "Sign in"}
           </a>
@@ -60,7 +62,7 @@ export function Header() {
 
         {/* Mobile hamburger */}
         <button
-          class="md:hidden text-neutral-400 hover:text-white"
+          class="md:hidden text-content-tertiary hover:text-content"
           onClick={() => (mobileOpen.value = !mobileOpen.value)}
           aria-label="Toggle menu"
         >
@@ -82,20 +84,23 @@ export function Header() {
 
       {/* Mobile menu */}
       {mobileOpen.value && (
-        <nav class="md:hidden bg-neutral-950/95 backdrop-blur-lg border-b border-neutral-800 px-6 pb-4 flex flex-col gap-3">
+        <nav class="md:hidden bg-overlay-heavy backdrop-blur-lg border-b border-edge px-6 pb-4 flex flex-col gap-3">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              class="text-sm text-neutral-400 hover:text-white transition-colors py-1"
+              class="text-sm text-content-tertiary hover:text-content transition-colors py-1"
               onClick={() => (mobileOpen.value = false)}
             >
               {l.label}
             </a>
           ))}
+          <div class="py-1">
+            <ThemeToggle />
+          </div>
           <a
             href={auth.authenticated.value ? "/dashboard" : "/auth"}
-            class="text-sm font-medium px-4 py-2 rounded-lg bg-violet-600 text-white hover:bg-violet-500 transition-colors text-center"
+            class="text-sm font-medium px-4 py-2 rounded-lg bg-accent text-white hover:bg-accent-hover transition-colors text-center"
             onClick={() => (mobileOpen.value = false)}
           >
             {auth.authenticated.value ? "Dashboard" : "Sign in"}
